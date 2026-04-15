@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BABEL | Experience of Luxury | Cartagena</title>
+    <meta name="description" content="Alquila el catamarán Babel en Cartagena. Una experiencia de lujo, confort y aventura en el Caribe colombiano.">
+    
+    <!-- Fonts - Studio Level -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400&family=Darker+Grotesque:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- GSAP & Plugins -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Draggable.min.js"></script>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="studio-theme">
+    <!-- Luxury Overlays -->
+    <div class="noise-overlay"></div>
+    <div class="custom-cursor"></div>
+
+    <header class="header">
+        <nav class="nav container">
+            <a href="#" class="logo">BABEL</a>
+            <div class="header-actions">
+                <div class="header-info">
+                    <span class="location">10° 23' 59" N | 75° 32' 26" W</span>
+                </div>
+                <div class="desktop-nav">
+                    <a href="#experiencia">Experiencia</a>
+                    <a href="#catamaran">Catamarán</a>
+                    <a href="#servicios">Servicios</a>
+                    <a href="#contacto">Reservar</a>
+                </div>
+                <button class="menu-toggle" aria-label="Menu" id="menuToggle">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Fullscreen Menu -->
+    <div class="fs-menu-overlay" id="fsMenu">
+        <div class="fs-menu-bg"></div>
+        <div class="fs-menu-content container">
+            <div class="fs-menu-links">
+                <a href="#experiencia" class="menu-item" data-text="EXPERIENCIA">EXPERIENCIA</a>
+                <a href="#catamaran" class="menu-item" data-text="EL BARCO">EL BARCO</a>
+                <a href="#servicios" class="menu-item" data-text="SERVICIOS">SERVICIOS</a>
+                <a href="#contacto" class="menu-item" data-text="RESERVAR">RESERVAR</a>
+            </div>
+            <div class="fs-menu-footer">
+                <div class="socials">
+                    <a href="#"><i data-lucide="instagram"></i></a>
+                    <a href="#"><i data-lucide="facebook"></i></a>
+                </div>
+                <p>Navegando el lujo en Cartagena de Indias</p>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-bg parallax-bg">
+                <img src="WhatsApp Image 2026-04-13 at 17.58.47 (2).jpeg" alt="Babel Catamaran" id="heroImg">
+                <div class="hero-mask"></div>
+            </div>
+            <div class="hero-content container">
+                <div class="hero-label reveal-studio">Luxury Catamaran Rental</div>
+                <h1 class="split-text">Majestic<br><span>BABEL</span></h1>
+                <p class="reveal-studio">The pinnacle of sailing in Cartagena. An avant-garde experience crafted for those who demand excellence.</p>
+                <div class="hero-actions reveal-studio">
+                    <a href="#contacto" class="btn-studio">Reserve Your Journey</a>
+                </div>
+            </div>
+            <div class="hero-bottom container reveal-studio">
+                <div class="time-data">CTGA TIME: <span id="localTime">--:--</span></div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section class="experience" id="experiencia">
+            <div class="container studio-grid">
+                <div class="experience-content">
+                    <span class="deco-text">01 // BEYOND</span>
+                    <h2 class="reveal-up">Exceptional <br><span>Moments</span></h2>
+                    <p class="reveal-up">Babel is more than a vessel; it is a statement. A fusion of naval engineering and high-end hospitality designed to provide privacy, comfort, and unmatched views of the Colombian Caribbean.</p>
+                </div>
+                <div class="experience-visual">
+                    <div class="visual-mask reveal-image">
+                        <img src="WhatsApp Image 2026-04-13 at 17.58.31 (1).jpeg" alt="Experience Babel">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3D Gallery Section -->
+        <section class="gallery-3d-section" id="catamaran">
+            <div class="container center">
+                <span class="deco-text">02 // THE VESSEL</span>
+                <h2 class="reveal-up">360° Vision</h2>
+            </div>
+            <div class="carousel-3d-wrapper">
+                <div class="carousel-3d">
+                    <div class="carousel-card active">
+                        <img src="WhatsApp Image 2026-04-13 at 17.58.32 (1).jpeg" alt="Lounge">
+                        <span>LUXURY LOUNGE</span>
+                    </div>
+                    <div class="carousel-card">
+                        <img src="WhatsApp Image 2026-04-13 at 17.58.45 (1).jpeg" alt="Deck">
+                        <span>OPEN DECK</span>
+                    </div>
+                    <div class="carousel-card">
+                        <img src="WhatsApp Image 2026-04-13 at 17.58.49 (2).jpeg" alt="Panoramic">
+                        <span>PANORAMIC VIEWS</span>
+                    </div>
+                    <div class="carousel-card">
+                        <img src="WhatsApp Image 2026-04-13 at 17.58.30.jpeg" alt="Exterior">
+                        <span>EXTERIOR DESIGN</span>
+                    </div>
+                </div>
+                <div class="carousel-controls">
+                    <button id="prevBtn"><i data-lucide="chevron-left"></i></button>
+                    <button id="nextBtn"><i data-lucide="chevron-right"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section - Redesigned to fill gaps -->
+        <section class="services-studio" id="servicios">
+            <div class="container">
+                <div class="services-header center">
+                    <span class="deco-text">03 // SERVICES</span>
+                    <h2>Studio Curated Features</h2>
+                </div>
+                <div class="services-marquee">
+                    <div class="marquee-content">
+                        <span>PREMIUM SOUND // BILINGUAL CREW // CATERING // PRIVATE TOURS // SUNSETS // Islas del rosario // CHOLON // TIERRA BOMBA // </span>
+                        <span>PREMIUM SOUND // BILINGUAL CREW // CATERING // PRIVATE TOURS // SUNSETS // Islas del rosario // CHOLON // TIERRA BOMBA // </span>
+                    </div>
+                </div>
+                <div class="services-grid-studio">
+                    <div class="service-box reveal-up">
+                        <div class="icon-wrap"><i data-lucide="music"></i></div>
+                        <h3>Audio Fidelity</h3>
+                        <p>High-end sound system across all decks.</p>
+                    </div>
+                    <div class="service-box reveal-up">
+                        <div class="icon-wrap"><i data-lucide="anchor"></i></div>
+                        <h3>Elite Crew</h3>
+                        <p>Professional captain and host at your disposal.</p>
+                    </div>
+                    <div class="service-box reveal-up">
+                        <div class="icon-wrap"><i data-lucide="wine"></i></div>
+                        <h3>Mixology</h3>
+                        <p>Curated cocktail and dining experiences.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Booking Section -->
+        <section class="booking-studio" id="contacto">
+            <div class="container">
+                <div class="booking-wrap reveal-up">
+                    <div class="booking-inner">
+                        <h2>Ready to <br><span>Depart?</span></h2>
+                        <a href="https://wa.me/57000000000" class="btn-studio-big">Contact Studio Babel <i data-lucide="arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-studio">
+        <div class="container footer-content">
+            <div class="footer-logo">BABEL</div>
+            <div class="footer-bottom-links">
+                <p>&copy; 2026 BABEL CARTAGENA. BEYOND SAILING.</p>
+                <div class="social-links-footer">
+                    <a href="#">INSTAGRAM</a>
+                    <a href="#">FACEBOOK</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
