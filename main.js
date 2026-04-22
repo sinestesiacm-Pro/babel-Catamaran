@@ -2,6 +2,40 @@
 document.addEventListener('DOMContentLoaded', () => {
     gsap.registerPlugin(ScrollTrigger);
 
+    // 0. Loader Animation
+    const loaderTl = gsap.timeline();
+    
+    loaderTl.to('.loader-bar', {
+        width: '100%',
+        duration: 2,
+        ease: 'power4.inOut'
+    })
+    .to('.loader-logo', {
+        y: -20,
+        opacity: 0,
+        duration: 0.5,
+        ease: 'power2.in'
+    })
+    .to('.loader-progress', {
+        scaleX: 0,
+        duration: 0.5,
+        ease: 'power2.in'
+    }, '-=0.3')
+    .to('.loader', {
+        height: 0,
+        duration: 1,
+        ease: 'expo.inOut'
+    })
+    .from('.header', {
+        y: -100,
+        opacity: 0,
+        duration: 1,
+        ease: 'expo.out'
+    }, '-=0.5')
+    .call(() => {
+        initHero(); // Start hero animations only after loader is done
+    });
+
     // 1. Custom Cursor
     const cursor = document.querySelector('.custom-cursor');
     document.addEventListener('mousemove', (e) => {
@@ -13,6 +47,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Hover effect for links
+    document.querySelectorAll('a, button').forEach(el => {
+        el.addEventListener('mouseenter', () => gsap.to(cursor, { scale: 1.5, background: 'rgba(229, 195, 166, 0.2)', border: 'none' }));
+        el.addEventListener('mouseleave', () => gsap.to(cursor, { scale: 1, background: 'transparent', border: '1px solid var(--accent)' }));
+    });
+
     // 2. Fullscreen Menu Toggle
     const menuToggle = document.getElementById('menuToggle');
     const fsMenu = document.getElementById('fsMenu');
@@ -20,8 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const menuTl = gsap.timeline({ paused: true });
     
-    // Define menu animation
-    menuTl.set(fsMenu, { display: 'block' }) // Force display block
+    menuTl.set(fsMenu, { display: 'block' })
     .to(fsMenu, {
         visibility: 'visible',
         duration: 0
@@ -43,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
         stagger: 0.1,
         duration: 0.5,
         ease: 'power2.out',
-        clearProps: 'all' // Ensure no stuck opacity issues
+        clearProps: 'all'
     }, '-=0.4');
     
     menuToggle.addEventListener('click', () => {
@@ -55,13 +94,12 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.style.overflow = 'hidden';
         } else {
             menuTl.reverse().then(() => {
-                gsap.set(fsMenu, { display: 'none' }); // Clean up after reverse
+                gsap.set(fsMenu, { display: 'none' });
             });
             document.body.style.overflow = 'auto';
         }
     });
 
-    // Close menu on link click
     document.querySelectorAll('.menu-item').forEach(link => {
         link.addEventListener('click', () => {
             isMenuOpen = false;
@@ -73,37 +111,42 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 3. Hero Animations (Studio Level)
-    const heroTl = gsap.timeline();
-    
-    heroTl.from('#heroImg', {
-        scale: 1.5,
-        duration: 2.5,
-        ease: 'expo.out'
-    })
-    .from('.split-text', {
-        y: 100,
-        opacity: 0,
-        duration: 1.5,
-        ease: 'expo.out'
-    }, '-=1.8')
-    .from('.reveal-studio', {
-        y: 30,
-        opacity: 0,
-        stagger: 0.2,
-        duration: 1,
-        ease: 'power3.out'
-    }, '-=1.2');
+    // 3. Hero Animations
+    function initHero() {
+        const heroTl = gsap.timeline();
+        
+        heroTl.from('#heroImg', {
+            scale: 1.5,
+            filter: 'blur(20px)',
+            duration: 2.5,
+            ease: 'expo.out'
+        })
+        .from('.split-text', {
+            y: 100,
+            opacity: 0,
+            rotateX: -45,
+            stagger: 0.1,
+            duration: 1.5,
+            ease: 'expo.out'
+        }, '-=1.8')
+        .from('.reveal-studio', {
+            y: 30,
+            opacity: 0,
+            stagger: 0.2,
+            duration: 1,
+            ease: 'power3.out'
+        }, '-=1.2');
+    }
 
-    // 4. Parallax Mouse Effect (Subtle)
+    // 4. Parallax Mouse Effect
     document.addEventListener('mousemove', (e) => {
-        const xPercent = (e.clientX / window.innerWidth - 0.5) * 20;
-        const yPercent = (e.clientY / window.innerHeight - 0.5) * 20;
+        const xPercent = (e.clientX / window.innerWidth - 0.5) * 40;
+        const yPercent = (e.clientY / window.innerHeight - 0.5) * 40;
         
         gsap.to('.parallax-bg img', {
             x: xPercent,
             y: yPercent,
-            duration: 1,
+            duration: 1.5,
             ease: 'power2.out'
         });
     });
@@ -111,7 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 5. 3D Carousel Logic
     const carouselCards = gsap.utils.toArray('.carousel-card');
     let currentIndex = 0;
-    const radius = 600; // Radius of 3D cylinder
+    const radius = 700; 
     const angleStep = 360 / carouselCards.length;
 
     function updateCarousel() {
@@ -121,15 +164,17 @@ document.addEventListener('DOMContentLoaded', () => {
             
             const z = Math.cos(rad) * radius - radius;
             const x = Math.sin(rad) * radius;
-            const opacity = Math.max(0.2, (z + radius) / radius);
+            const opacity = Math.max(0.1, (z + radius) / radius);
+            const scale = Math.max(0.6, (z + radius) / radius);
             
             gsap.to(card, {
                 x: x,
                 z: z,
                 rotationY: angle,
                 opacity: opacity,
-                duration: 1,
-                ease: 'power3.out',
+                scale: scale,
+                duration: 1.2,
+                ease: 'expo.out',
                 zIndex: Math.round(z)
             });
             
@@ -137,7 +182,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Initial position
     updateCarousel();
 
     document.getElementById('nextBtn').addEventListener('click', () => {
@@ -153,26 +197,28 @@ document.addEventListener('DOMContentLoaded', () => {
     // 6. ScrollTrigger reveals
     gsap.utils.toArray('.reveal-up').forEach(elem => {
         gsap.from(elem, {
-            y: 80,
+            y: 100,
             opacity: 0,
-            duration: 1.2,
+            filter: 'blur(10px)',
+            duration: 1.5,
             ease: 'expo.out',
             scrollTrigger: {
                 trigger: elem,
-                start: 'top 90%',
+                start: 'top 95%',
                 toggleActions: 'play none none reverse'
             }
         });
     });
 
-    // Visual Mask Image reveal
-    gsap.from('.reveal-image img', {
-        scale: 1.4,
-        duration: 1.5,
+    gsap.from('.visual-mask img', {
+        scale: 1.6,
+        filter: 'blur(15px)',
+        duration: 2,
         ease: 'expo.out',
         scrollTrigger: {
             trigger: '.reveal-image',
             start: 'top 80%',
+            scrub: 1
         }
     });
 
@@ -195,7 +241,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 8. Header Shrink on Scroll
     ScrollTrigger.create({
         start: 'top -50',
-        onEnter: () => gsap.to('.header', { padding: '1.5rem 0', background: 'rgba(5,5,5,0.8)', backdropFilter: 'blur(10px)', duration: 0.3 }),
-        onLeaveBack: () => gsap.to('.header', { padding: '2.5rem 0', background: 'transparent', backdropFilter: 'blur(0px)', duration: 0.3 }),
+        onEnter: () => gsap.to('.header', { padding: '1.5rem 0', background: 'rgba(5,5,5,0.85)', backdropFilter: 'blur(20px)', duration: 0.4 }),
+        onLeaveBack: () => gsap.to('.header', { padding: '4rem 0', background: 'transparent', backdropFilter: 'blur(0px)', duration: 0.4 }),
     });
 });
