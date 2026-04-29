@@ -1,15 +1,15 @@
 :root {
-    --primary: #050505;
-    --accent: #E5C3A6; /* Champán / Arena de Cartagena */
-    --accent-dark: #A68369;
-    --bg-light: #F2F0ED;
+    --primary: #080808;
+    --accent: #2E5BFF; /* Electric Azure - Más moderno y creativo */
+    --accent-light: #00D1FF;
+    --bg-dark: #050505;
     --text-white: #FFFFFF;
-    --text-muted: rgba(255, 255, 255, 0.6);
-    --transition-slow: all 0.8s cubic-bezier(0.19, 1, 0.22, 1);
-    --transition-fast: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    --text-muted: rgba(255, 255, 255, 0.5);
+    --transition-studio: all 0.7s cubic-bezier(0.19, 1, 0.22, 1);
     --glass: rgba(255, 255, 255, 0.03);
-    --glass-border: rgba(255, 255, 255, 0.08);
+    --border: rgba(255, 255, 255, 0.1);
 }
+
 
 /* Loader Styles */
 .loader {
@@ -75,10 +75,12 @@
 body {
     background-color: var(--primary);
     color: var(--text-white);
-    font-family: 'Darker Grotesque', sans-serif;
+    font-family: 'Outfit', sans-serif;
     overflow-x: hidden;
-    cursor: none; /* Custom cursor */
+    cursor: none;
+    line-height: 1.6;
 }
+
 
 .container {
     max-width: 1400px;
@@ -121,15 +123,23 @@ h1, h2 {
     font-family: 'Syne', sans-serif;
     font-weight: 800;
     text-transform: uppercase;
+    letter-spacing: -0.02em;
 }
 
 h2 span, h1 span {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
+    font-family: 'Syne', sans-serif;
     font-weight: 400;
-    text-transform: none;
-    color: var(--accent);
+    -webkit-text-stroke: 1px var(--text-white);
+    color: transparent;
+    text-transform: uppercase;
 }
+
+.time-data {
+    font-family: 'Space Grotesk', monospace;
+    font-weight: 500;
+    font-size: 0.8rem;
+}
+
 
 .deco-text {
     font-family: 'Syne', sans-serif;
@@ -422,24 +432,44 @@ h1 {
 }
 
 .btn-studio {
-    display: inline-block;
-    padding: 1.2rem 3rem;
-    background: var(--accent);
-    color: var(--primary);
+    display: inline-flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem 3.5rem;
+    background: transparent;
+    border: 1px solid var(--accent);
+    color: var(--text-white);
     text-decoration: none;
     font-weight: 700;
-    border-radius: 0;
     font-family: 'Syne', sans-serif;
     text-transform: uppercase;
     letter-spacing: 2px;
-    transition: var(--transition-fast);
+    transition: var(--transition-studio);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-studio::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background: var(--accent);
+    z-index: -1;
+    transition: var(--transition-studio);
 }
 
 .btn-studio:hover {
-    background: white;
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    color: white;
+    border-color: var(--accent);
 }
+
+.btn-studio:hover::before {
+    width: 100%;
+}
+
 
 .hero-bottom {
     position: absolute;
@@ -588,18 +618,18 @@ h1 {
 }
 
 .service-box {
-    padding: 3rem;
-    background: #0a0a0a;
-    border: 1px solid #1a1a1a;
-    transition: var(--transition-fast);
+    padding: 4rem 3rem;
+    background: transparent;
+    border-left: 1px solid var(--border);
+    transition: var(--transition-studio);
 }
 
 .service-box:hover {
-    border-color: var(--accent);
-    background: var(--glass);
-    backdrop-filter: blur(10px);
-    transform: translateY(-10px);
+    border-left-color: var(--accent);
+    background: linear-gradient(90deg, rgba(46, 91, 255, 0.05) 0%, transparent 100%);
+    transform: translateX(10px);
 }
+
 
 .service-box h3 {
     font-family: 'Syne', sans-serif;

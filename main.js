@@ -1,6 +1,12 @@
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { createIcons, Instagram, Facebook, ChevronLeft, ChevronRight, Music, Anchor, Wine, ArrowRight } from 'lucide';
+
+gsap.registerPlugin(ScrollTrigger);
+
 // BABEL - STUDIO LEVEL JS
-document.addEventListener('DOMContentLoaded', () => {
-    gsap.registerPlugin(ScrollTrigger);
+// No longer need DOMContentLoaded as this is a module
+
 
     // 0. Loader Animation
     const loaderTl = gsap.timeline();
@@ -244,4 +250,18 @@ document.addEventListener('DOMContentLoaded', () => {
         onEnter: () => gsap.to('.header', { padding: '1.5rem 0', background: 'rgba(5,5,5,0.85)', backdropFilter: 'blur(20px)', duration: 0.4 }),
         onLeaveBack: () => gsap.to('.header', { padding: '4rem 0', background: 'transparent', backdropFilter: 'blur(0px)', duration: 0.4 }),
     });
-});
+
+    // 9. Initialize Lucide Icons
+    createIcons({
+        icons: {
+            Instagram,
+            Facebook,
+            ChevronLeft,
+            ChevronRight,
+            Music,
+            Anchor,
+            Wine,
+            ArrowRight
+        }
+    });
+
