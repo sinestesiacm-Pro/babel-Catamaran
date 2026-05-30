@@ -6,28 +6,18 @@
     <title>BABEL | Experience of Luxury | Cartagena</title>
     <meta name="description" content="Alquila el catamarán Babel en Cartagena. Una experiencia de lujo, confort y aventura en el Caribe colombiano.">
     
-    <!-- Fonts - Studio Level -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Outfit:wght@300;400;600&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
-
+    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Draggable.min.js"></script>
     
-    <link rel="stylesheet" href="/style.css">
-
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="studio-theme">
-    <!-- Premium Loader -->
-    <div class="loader">
-        <div class="loader-content">
-            <div class="loader-logo">BABEL</div>
-            <div class="loader-progress">
-                <div class="loader-bar"></div>
-            </div>
-            <div class="loader-text">Navigating to Excellence...</div>
-        </div>
-    </div>
-
-    <!-- Luxury Overlays -->
+<body class="light-theme">
     <div class="noise-overlay"></div>
     <div class="custom-cursor"></div>
 
@@ -40,10 +30,14 @@
                 </div>
                 <div class="desktop-nav">
                     <a href="#experiencia">Experiencia</a>
+                    <a href="#stats">Trayectoria</a>
                     <a href="#catamaran">Catamarán</a>
                     <a href="#servicios">Servicios</a>
                     <a href="#contacto">Reservar</a>
                 </div>
+                <button id="themeToggle" class="theme-btn" aria-label="Toggle Theme">
+                    <i data-lucide="moon"></i>
+                </button>
                 <button class="menu-toggle" aria-label="Menu" id="menuToggle">
                     <div class="line"></div>
                     <div class="line"></div>
@@ -53,12 +47,12 @@
         </nav>
     </header>
 
-    <!-- Fullscreen Menu -->
     <div class="fs-menu-overlay" id="fsMenu">
         <div class="fs-menu-bg"></div>
         <div class="fs-menu-content container">
             <div class="fs-menu-links">
                 <a href="#experiencia" class="menu-item" data-text="EXPERIENCIA">EXPERIENCIA</a>
+                <a href="#stats" class="menu-item" data-text="TRAYECTORIA">TRAYECTORIA</a>
                 <a href="#catamaran" class="menu-item" data-text="EL BARCO">EL BARCO</a>
                 <a href="#servicios" class="menu-item" data-text="SERVICIOS">SERVICIOS</a>
                 <a href="#contacto" class="menu-item" data-text="RESERVAR">RESERVAR</a>
@@ -78,6 +72,9 @@
         <section class="hero" id="home">
             <div class="hero-bg parallax-bg">
                 <img src="WhatsApp Image 2026-04-13 at 17.58.47 (2).jpeg" alt="Babel Catamaran" id="heroImg">
+                <video class="hero-video" muted playsinline preload="metadata">
+                    <source src="WhatsApp Video 2026-04-13 at 18.00.23.mp4" type="video/mp4">
+                </video>
                 <div class="hero-mask"></div>
             </div>
             <div class="hero-content container">
@@ -86,10 +83,17 @@
                 <p class="reveal-studio">The pinnacle of sailing in Cartagena. An avant-garde experience crafted for those who demand excellence.</p>
                 <div class="hero-actions reveal-studio">
                     <a href="#contacto" class="btn-studio">Reserve Your Journey</a>
+                    <button id="videoToggle" class="btn-studio-outline" aria-label="Toggle Video">
+                        <i data-lucide="play"></i> Ver experiencia
+                    </button>
                 </div>
             </div>
             <div class="hero-bottom container reveal-studio">
                 <div class="time-data">CTGA TIME: <span id="localTime">--:--</span></div>
+                <div class="scroll-indicator">
+                    <span>SCROLL</span>
+                    <div class="scroll-line"></div>
+                </div>
             </div>
         </section>
 
@@ -104,6 +108,30 @@
                 <div class="experience-visual">
                     <div class="visual-mask reveal-image">
                         <img src="WhatsApp Image 2026-04-13 at 17.58.31 (1).jpeg" alt="Experience Babel">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section - FP Style -->
+        <section class="stats-section" id="stats">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item reveal-up">
+                        <span class="stat-number" data-target="15">0</span>
+                        <span class="stat-label">Años de experiencia</span>
+                    </div>
+                    <div class="stat-item reveal-up">
+                        <span class="stat-number" data-target="12">0</span>
+                        <span class="stat-label">Destinos exclusivos</span>
+                    </div>
+                    <div class="stat-item reveal-up">
+                        <span class="stat-number" data-target="500">0</span>
+                        <span class="stat-label">Huéspedes satisfechos</span>
+                    </div>
+                    <div class="stat-item reveal-up">
+                        <span class="stat-number" data-target="98">0</span>
+                        <span class="stat-label">% Recomendación</span>
                     </div>
                 </div>
             </div>
@@ -141,7 +169,7 @@
             </div>
         </section>
 
-        <!-- Services Section - Redesigned to fill gaps -->
+        <!-- Services Section - Redesigned FP Style -->
         <section class="services-studio" id="servicios">
             <div class="container">
                 <div class="services-header center">
@@ -155,21 +183,83 @@
                     </div>
                 </div>
                 <div class="services-grid-studio">
-                    <div class="service-box reveal-up">
-                        <div class="icon-wrap"><i data-lucide="music"></i></div>
-                        <h3>Audio Fidelity</h3>
-                        <p>High-end sound system across all decks.</p>
+                    <div class="service-card" data-aos="fade-up">
+                        <div class="service-card-image">
+                            <img src="WhatsApp Image 2026-04-13 at 17.58.32 (2).jpeg" alt="Audio Fidelity">
+                        </div>
+                        <div class="service-card-content">
+                            <i data-lucide="music"></i>
+                            <h3>Audio Fidelity</h3>
+                            <p>Sistemas de sonido de alta fidelidad integrados para crear la atmósfera perfecta.</p>
+                        </div>
                     </div>
-                    <div class="service-box reveal-up">
-                        <div class="icon-wrap"><i data-lucide="anchor"></i></div>
-                        <h3>Elite Crew</h3>
-                        <p>Professional captain and host at your disposal.</p>
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="service-card-image">
+                            <img src="WhatsApp Image 2026-04-13 at 17.58.31 (2).jpeg" alt="Elite Crew">
+                        </div>
+                        <div class="service-card-content">
+                            <i data-lucide="users"></i>
+                            <h3>Elite Crew</h3>
+                            <p>Tripulación bilingüe capacitada para anticipar cada una de sus necesidades.</p>
+                        </div>
                     </div>
-                    <div class="service-box reveal-up">
-                        <div class="icon-wrap"><i data-lucide="wine"></i></div>
-                        <h3>Mixology</h3>
-                        <p>Curated cocktail and dining experiences.</p>
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="service-card-image">
+                            <img src="WhatsApp Image 2026-04-13 at 17.58.43.jpeg" alt="Mixology">
+                        </div>
+                        <div class="service-card-content">
+                            <i data-lucide="glass-water"></i>
+                            <h3>Mixology</h3>
+                            <p>Bar abierto con mixología de autor inspirada en sabores locales del Caribe.</p>
+                        </div>
                     </div>
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="service-card-image">
+                            <img src="WhatsApp Image 2026-04-13 at 17.58.46 (1).jpeg" alt="Private Chef">
+                        </div>
+                        <div class="service-card-content">
+                            <i data-lucide="utensils"></i>
+                            <h3>Private Chef</h3>
+                            <p>Cenas gourmet a bordo preparadas por chefs de renombre local.</p>
+                        </div>
+                    </div>
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="service-card-image">
+                            <img src="WhatsApp Image 2026-04-13 at 17.58.47 (1).jpeg" alt="Sunset Sessions">
+                        </div>
+                        <div class="service-card-content">
+                            <i data-lucide="sun"></i>
+                            <h3>Sunset Sessions</h3>
+                            <p>Experiencias curadas para contemplar el atardecer con música en vivo.</p>
+                        </div>
+                    </div>
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+                        <div class="service-card-image">
+                            <img src="WhatsApp Image 2026-04-13 at 17.58.38.jpeg" alt="Hidden Bays">
+                        </div>
+                        <div class="service-card-content">
+                            <i data-lucide="anchor"></i>
+                            <h3>Hidden Bays</h3>
+                            <p>Navegación exclusiva a bahías privadas lejos del turismo convencional.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section - FP Style -->
+        <section class="newsletter-section">
+            <div class="container">
+                <div class="newsletter-wrap reveal-up">
+                    <span class="deco-text">STAY CONNECTED</span>
+                    <h2>Recibe <span>exclusivas</span> de Babel</h2>
+                    <p>Sé el primero en conocer nuestras experiencias especiales y ofertas privadas.</p>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <div class="newsletter-input-group">
+                            <input type="email" placeholder="Tu correo electrónico" required>
+                            <button type="submit" class="btn-studio">Suscribirse</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </section>
@@ -188,19 +278,48 @@
     </main>
 
     <footer class="footer-studio">
-        <div class="container footer-content">
-            <div class="footer-logo">BABEL</div>
-            <div class="footer-bottom-links">
-                <p>&copy; 2026 BABEL CARTAGENA. BEYOND SAILING.</p>
-                <div class="social-links-footer">
-                    <a href="#">INSTAGRAM</a>
-                    <a href="#">FACEBOOK</a>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">BABEL</div>
+                    <p>Beyond sailing. <br>Cartagena de Indias.</p>
+                    <div class="social-links-footer">
+                        <a href="#">INSTAGRAM</a>
+                        <a href="#">FACEBOOK</a>
+                        <a href="#">TIKTOK</a>
+                    </div>
                 </div>
+                <div class="footer-links">
+                    <h4>Navegación</h4>
+                    <a href="#experiencia">Experiencia</a>
+                    <a href="#stats">Trayectoria</a>
+                    <a href="#catamaran">Catamarán</a>
+                    <a href="#servicios">Servicios</a>
+                    <a href="#contacto">Reservar</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Contacto</h4>
+                    <a href="https://wa.me/57000000000">WhatsApp</a>
+                    <a href="mailto:info@babelcartagena.com">Email</a>
+                    <a href="#">Marina Santa Marta</a>
+                    <a href="#">Cartagena, Colombia</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <a href="#">Términos</a>
+                    <a href="#">Privacidad</a>
+                    <a href="#">Cookies</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 BABEL CARTAGENA. BEYOND SAILING.</p>
             </div>
         </div>
     </footer>
 
-    <script type="module" src="/main.js"></script>
-
+    <script src="main.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
 </body>
 </html>
