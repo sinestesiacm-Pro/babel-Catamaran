@@ -133,6 +133,9 @@ h2 span, h1 span {
     z-index: 1100;
     padding: 3rem 0;
     transition: var(--transition-slow);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 .nav {
@@ -159,7 +162,7 @@ h2 span, h1 span {
 }
 
 .desktop-nav a {
-    color: #ffffff;
+    color: var(--text);
     text-decoration: none;
     font-size: 0.7rem;
     letter-spacing: 3px;
@@ -193,7 +196,7 @@ h2 span, h1 span {
     font-weight: 700;
     font-size: 2rem;
     letter-spacing: -2px;
-    color: #ffffff;
+    color: var(--text);
     text-decoration: none;
 }
 
@@ -203,14 +206,14 @@ h2 span, h1 span {
     opacity: 0.6;
     font-family: 'Clash Display', sans-serif;
     white-space: nowrap;
-    color: #ffffff;
+    color: var(--text);
 }
 
 /* --- Theme Toggle Button --- */
 .theme-btn {
     background: none;
-    border: 1px solid rgba(255,255,255,0.2);
-    color: #ffffff;
+    border: 1px solid var(--border);
+    color: var(--text);
     width: 42px;
     height: 42px;
     border-radius: 50%;
@@ -249,7 +252,7 @@ h2 span, h1 span {
 .menu-toggle .line {
     width: 100%;
     height: 1px;
-    background: #ffffff;
+    background: var(--text);
     transition: var(--transition-fast);
 }
 
@@ -429,6 +432,7 @@ h2 span, h1 span {
 .hero-content {
     position: relative;
     z-index: 5;
+    color: #ffffff;
 }
 
 .hero-label {
@@ -444,6 +448,7 @@ h1 {
     font-size: clamp(4rem, 8vw, 8rem);
     line-height: 0.9;
     margin-bottom: 2.5rem;
+    color: #ffffff;
 }
 
 .hero-content p {
@@ -452,6 +457,7 @@ h1 {
     opacity: 0.7;
     margin-bottom: 3rem;
     line-height: 1.6;
+    color: #ffffff;
 }
 
 .hero-actions {
@@ -488,7 +494,7 @@ h1 {
     gap: 0.75rem;
     padding: 1.1rem 2.5rem;
     background: transparent;
-    color: var(--text);
+    color: #ffffff;
     text-decoration: none;
     font-weight: 600;
     border-radius: 0;
@@ -497,7 +503,7 @@ h1 {
     text-transform: uppercase;
     letter-spacing: 2px;
     transition: var(--transition-fast);
-    border: 1px solid var(--border);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     cursor: pointer;
 }
 
@@ -514,13 +520,17 @@ h1 {
 .hero-bottom {
     position: absolute;
     bottom: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
     width: calc(100% - 12rem);
+    max-width: 1400px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 0.7rem;
     letter-spacing: 2px;
     opacity: 0.5;
+    color: #ffffff;
 }
 
 .scroll-indicator {
@@ -534,7 +544,7 @@ h1 {
 .scroll-line {
     width: 40px;
     height: 1px;
-    background: var(--text);
+    background: #ffffff;
     animation: scrollPulse 2s ease infinite;
 }
 
@@ -623,7 +633,6 @@ h1 {
 /* --- 3D Carousel --- */
 .gallery-3d-section {
     padding: 12rem 0 15rem;
-    perspective: 2000px;
 }
 
 .gallery-3d-section h2 {
@@ -635,7 +644,7 @@ h1 {
     height: 500px;
     width: 100%;
     margin-top: 5rem;
-    transform-style: preserve-3d;
+    perspective: 2000px;
 }
 
 .carousel-3d {
@@ -658,6 +667,7 @@ h1 {
     transition: var(--transition-slow);
     backface-visibility: hidden;
     border: 1px solid var(--border-light);
+    transform-style: preserve-3d;
 }
 
 .carousel-card img {
@@ -1078,6 +1088,7 @@ body.light-theme .footer-studio {
     .services-grid-studio { grid-template-columns: 1fr; }
     .carousel-card { width: 300px; height: 400px; margin-left: -150px; margin-top: -200px; }
     .hero-actions { flex-direction: column; align-items: flex-start; }
+    .hero-bottom { width: calc(100% - 4rem); }
     .stats-section { padding: 4rem 0; }
     .stats-grid { gap: 1rem; }
     .stat-item { padding: 1.5rem; }

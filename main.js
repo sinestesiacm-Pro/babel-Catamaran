@@ -178,7 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 opacity: opacity,
                 duration: 1,
                 ease: 'power3.out',
-                zIndex: Math.round(z)
+                zIndex: Math.round(z) + radius
             });
 
             card.classList.toggle('active', index === currentIndex);
@@ -299,14 +299,14 @@ document.addEventListener('DOMContentLoaded', () => {
         start: 'top -50',
         onEnter: () => gsap.to('.header', {
             padding: '1.5rem 0',
-            background: 'rgba(5,5,5,0.85)',
+            background: 'rgba(255, 255, 255, 0.1)',
             backdropFilter: 'blur(20px)',
             duration: 0.3
         }),
         onLeaveBack: () => gsap.to('.header', {
             padding: '3rem 0',
-            background: 'transparent',
-            backdropFilter: 'blur(0px)',
+            background: 'rgba(255, 255, 255, 0.05)',
+            backdropFilter: 'blur(10px)',
             duration: 0.3
         }),
     });
