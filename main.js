@@ -298,15 +298,15 @@ document.addEventListener('DOMContentLoaded', () => {
     ScrollTrigger.create({
         start: 'top -50',
         onEnter: () => gsap.to('.header', {
-            padding: '1.5rem 0',
-            background: 'rgba(255, 255, 255, 0.1)',
-            backdropFilter: 'blur(20px)',
+            padding: '1rem 0',
+            background: 'rgba(255, 255, 255, 0.08)',
+            backdropFilter: 'blur(16px)',
             duration: 0.3
         }),
         onLeaveBack: () => gsap.to('.header', {
-            padding: '3rem 0',
-            background: 'rgba(255, 255, 255, 0.05)',
-            backdropFilter: 'blur(10px)',
+            padding: '1.5rem 0',
+            background: 'rgba(255, 255, 255, 0.03)',
+            backdropFilter: 'blur(8px)',
             duration: 0.3
         }),
     });
